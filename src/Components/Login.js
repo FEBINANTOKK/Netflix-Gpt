@@ -5,15 +5,21 @@ import { checkValidate } from "../Utils/validate";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  updateProfile,
 } from "firebase/auth";
 import { auth } from "../Utils/firebase";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addUser } from "../Utils/userSlice";
 
 const Login = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [isSignin, setIsSignin] = useState(true);
 
   const [errorMessage, setErroeMessage] = useState(null);
   const email = useRef(null);
-
+  const name = useRef(null);
   const password = useRef(null);
 
   const handleButtonClick = () => {
@@ -32,6 +38,29 @@ const Login = () => {
         .then((userCredential) => {
           // Signed up
           const user = userCredential.user;
+
+          updateProfile(user, {
+            displayName: name.current.value,
+          })
+            .then(() => {
+              // Profile updated!
+              // ...
+              const { uid, email, displayName } = auth.currentUser;
+              // ...
+
+              dispatch(
+                addUser({
+                  uid: uid,
+                  email: email,
+                  displayName: displayName,
+                })
+              );
+              navigate("/browse");
+            })
+            .catch((error) => {
+              // An error occurred
+              // ...
+            });
           console.log(user);
         })
         .catch((error) => {
@@ -51,7 +80,7 @@ const Login = () => {
           const user = userCredential.user;
           // ...
 
-          console.log(user);
+          navigate("/browse");
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -83,6 +112,7 @@ const Login = () => {
         <div className=" flex flex-col gap-6">
           {!isSignin && (
             <input
+              ref={name}
               type="text "
               placeholder=" Name"
               className=" px-2 2 py-1 rounded-sm bg-gray-800 text-gray-100 border border-gray-500"
