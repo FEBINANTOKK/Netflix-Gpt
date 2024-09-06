@@ -7,16 +7,36 @@ const SecondaryContainer = () => {
 
   return (
     movies.onPlayingMovies && (
-      <div className="  relative z-20 -mt-32">
-        <MovieList title={"onPlayingMovies"} movies={movies.onPlayingMovies} />
-        <MovieList title={"onPlayingMovies"} movies={movies.onPlayingMovies} />
+      <div className="   bg-black">
+        <div className="relative z-20 -mt-48">
+          <MovieList
+            title={"onPlayingMovies"}
+            movies={movies.onPlayingMovies}
+          />
+          <MovieList
+            title={"onPlayingMovies"}
+            movies={movies.onPlayingMovies}
+          />
 
-        <MovieList title={"onPlayingMovies"} movies={movies.onPlayingMovies} />
+          <MovieList
+            title={"onPlayingMovies"}
+            movies={movies.onPlayingMovies}
+          />
 
-        <MovieList title={"onPlayingMovies"} movies={movies.onPlayingMovies} />
+          <MovieList
+            title={"onPlayingMovies"}
+            movies={movies.onPlayingMovies}
+          />
 
-        <MovieList title={"onPlayingMovies"} movies={movies.onPlayingMovies} />
-        <MovieList title={"onPlayingMovies"} movies={movies.onPlayingMovies} />
+          <MovieList
+            title={"onPlayingMovies"}
+            movies={movies.onPlayingMovies}
+          />
+          <MovieList
+            title={"onPlayingMovies"}
+            movies={movies.onPlayingMovies}
+          />
+        </div>
       </div>
     )
   );
