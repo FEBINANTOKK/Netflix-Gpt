@@ -5,7 +5,7 @@ import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser, removeUser } from "../Utils/userSlice";
 import { LOGO_MENU, PHOTO_URL } from "../Utils/Constants";
-
+import { toggleGptSearchView } from "../Utils/gptSlice";
 export const Header = () => {
   const user = useSelector((store) => store.user);
   const dispatch = useDispatch();
@@ -48,6 +48,10 @@ export const Header = () => {
     //Unsubscribe when component Unmound
     return () => unsubscribe();
   }, []);
+
+  const handleGptSearch = () => {
+    dispatch(toggleGptSearchView());
+  };
   return (
     <div className="absolute w-screen px-8 py-2 z-50 flex justify-between items-center ">
       <img className="w-44" src={LOGO_MENU} alt="logo " />
@@ -57,6 +61,12 @@ export const Header = () => {
           className="flex
          gap-3 items-center"
         >
+          <button
+            className="px-4 rounded-lg m-2 bg-violet-900 text-white"
+            onClick={handleGptSearch}
+          >
+            Gpt Search
+          </button>
           <img className="w-7 h-7" src={user.photoURL} alt="userPro" />
 
           <button
