@@ -22,3 +22,6 @@ export const SUPPORTED_LANGUAGE = [
   { identifier: "tamil", name: "Tamil" },
   { identifier: "spanish", name: "Spanish" },
 ];
+
+export const OPEN_API_KEY =
+  "sk-mFMyprh9JXKotiUkjmZRXi3c6f4jOI-fPJUBRfni5_T3BlbkFJ45MrVyAq1L1W_w_gsKITrhZme4IjGxxbW__7-C_RMA";
