@@ -95,11 +95,15 @@ const Login = () => {
     <div>
       <Header />
       <div>
-        <img className="h-[100vh] w-[100vw]" src={BG_URL} alt="bg" />
+        <img
+          className="h-[100vh] w-[100vw] object-cover"
+          src={BG_URL}
+          alt="bg"
+        />
       </div>
       <form
         onSubmit={(e) => e.preventDefault()}
-        className="absolute z-40 top-32 bg-black  w-3/12 text-white  px-9 py-12 mx-auto left-0 right-0  bg-opacity-75 "
+        className="absolute z-40 top-32 bg-black w-[87%] sm:w-[350px]  text-white  px-9 py-12 mx-auto left-0 right-0  bg-opacity-75 "
       >
         <h2 className=" pb-4 font-bold">{isSignin ? "SIGN IN" : "SIGN UP"} </h2>
         <div className=" flex flex-col gap-6">
@@ -133,7 +137,7 @@ const Login = () => {
           </button>
         </div>
         <p
-          className=" py-7 text-center cursor-pointer"
+          className=" py-6 text-center cursor-pointer"
           onClick={toggleSigninForm}
         >
           {" "}

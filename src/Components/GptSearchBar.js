@@ -43,22 +43,16 @@ const GptSearchBar = () => {
     const gptMovies = dummyGptResponse[0]?.content.split(",");
 
     const promiseArray = gptMovies.map((movie) => searchMoovieTMDB(movie));
-    console.log("SEARCH ON OPENAPI");
-    console.log(dummyGptResponse);
-
-    console.log(gptMovies);
-    console.log(promiseArray);
 
     const tmdbMovies = await Promise.all(promiseArray);
-    console.log(tmdbMovies);
     dispatch(addGptMovies({ tmdbMovies: tmdbMovies, gptMovies: gptMovies }));
   };
 
   return (
-    <div className="pt-[10%]  ">
+    <div className="pt-[30%] md:pt-[10%]  ">
       <div className="flex justify-center">
         <form
-          className="bg-black w-[48%] grid grid-cols-12 p-2 rounded-3xl"
+          className="bg-black w-[90%] md:w-[48%] grid grid-cols-12 p-2 rounded-3xl"
           onSubmit={(e) => e.preventDefault()}
         >
           <input
@@ -69,7 +63,7 @@ const GptSearchBar = () => {
           ></input>
 
           <button
-            className="px-4 m-1 bg-red-800 text-white  col-span-3 rounded-lg ml-5 mr-2"
+            className="px-4 m-1 bg-red-800 text-white  col-span-3 rounded-lg ml-2 md:ml-5 md:mr-2"
             onClick={handleSearchClick}
           >
             {lang[langKey].search}

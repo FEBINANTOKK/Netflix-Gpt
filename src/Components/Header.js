@@ -59,8 +59,12 @@ export const Header = () => {
     dispatch(changeLang(e.target.value));
   };
   return (
-    <div className="absolute w-screen px-8 py-2 z-50 flex justify-between items-center ">
-      <img className="w-44" src={LOGO_MENU} alt="logo " />
+    <div className="absolute w-screen md:px-8 py-2 z-50 flex flex-col justify-between items-center  md:flex-row  ">
+      <img
+        className=" m-auto w-24 md:w-44 md:m-0"
+        src={LOGO_MENU}
+        alt="logo "
+      />
 
       {user && (
         <div
