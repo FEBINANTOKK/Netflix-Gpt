@@ -3,6 +3,7 @@ import VideoBackground from "./VideoBackground";
 import VideoTitle from "./VideoTitle";
 import { useSelector } from "react-redux";
 import SecondaryContainer from "./SecondaryContainer";
+import ShowMovieDetails from "./ShowMovieDetails";
 
 const MainContainer = () => {
   const movies = useSelector((store) => store.movies?.onPlayingMovies);
