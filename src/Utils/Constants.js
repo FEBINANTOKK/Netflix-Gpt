@@ -7,8 +7,7 @@ export const MOVIE_OPTIONS = {
   method: "GET",
   headers: {
     accept: "application/json",
-    Authorization:
-      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwMDM5MzdkM2JhNGFmZTk5M2EyMTQ2NjMyNWQwODBkMSIsIm5iZiI6MTcyNTI4MzQwOC4wNzUwNjYsInN1YiI6IjY2ZDViOTNjMWFhNWI4Mzk0NTZlZGNiMCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.DLioMY5Beial3z7lksXyNGNDgpzAwkPLcNNnaBv_8bo",
+    Authorization: "Bearer " + process.env.REACT_APP_TMDB_API_KEY,
   },
 };
 
@@ -23,5 +22,4 @@ export const SUPPORTED_LANGUAGE = [
   { identifier: "spanish", name: "Spanish" },
 ];
 
-export const OPEN_API_KEY =
-  "sk-mFMyprh9JXKotiUkjmZRXi3c6f4jOI-fPJUBRfni5_T3BlbkFJ45MrVyAq1L1W_w_gsKITrhZme4IjGxxbW__7-C_RMA";
+export const OPEN_API_KEY = process.env.REACT_APP_OPEN_API_KEY;
