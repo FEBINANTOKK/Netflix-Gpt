@@ -2,13 +2,21 @@ import React from "react";
 import { IMG_CDN_URL } from "../Utils/Constants";
 
 import { useDispatch } from "react-redux";
-import { addMovieIdToShow, addShowDetails } from "../Utils/movieSlice";
+import {
+  addMovieDetails,
+  addMovieIdToShow,
+  addShowDetailsfalse,
+  addShowDetailstrue,
+} from "../Utils/movieSlice";
 
 const MovieCard = ({ poster_path, id }) => {
   const disptch = useDispatch();
 
   const ShowMovieDetails = () => {
-    disptch(addShowDetails(true));
+    disptch(addShowDetailsfalse(false));
+    disptch(addMovieIdToShow(null));
+
+    disptch(addShowDetailstrue(true));
     disptch(addMovieIdToShow(id));
   };
   if (!poster_path) return null;

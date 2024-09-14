@@ -2,11 +2,12 @@ import React from "react";
 import { useSelector } from "react-redux";
 import MovieList from "./MovieList";
 import ShowMovieDetails from "./ShowMovieDetails";
+import CarouselComponent from "./Carousel";
 
 const SecondaryContainer = () => {
   const movies = useSelector((store) => store.movies);
   const movieId = useSelector(
-    (Store) => Store.movies.showMovieDetails.movieIdToShow
+    (Store) => Store.movies.showMovieDetails.showDetails
   );
   return (
     movies.onPlayingMovies &&
@@ -14,7 +15,7 @@ const SecondaryContainer = () => {
     movies.topRatedMovies &&
     movies.upcomingMovies && (
       <div className=" relative  bg-black">
-        <div className=" text-white">{movieId && <ShowMovieDetails />}</div>
+        <div className="  text-white">{movieId && <ShowMovieDetails />}</div>
         <div className="relative z-20 mt-0 md:-mt-48">
           <MovieList
             title={"onPlayingMovies"}
